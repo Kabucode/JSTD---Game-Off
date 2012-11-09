@@ -1,7 +1,4 @@
-$(document).ready(function(){
-	gameInit();
-});
-
+var g_resources = [];
 var towerTypes =  {
 	"fire": 1,
 	"ice":2,
@@ -9,9 +6,55 @@ var towerTypes =  {
 	"spike":4	
 }
 var mapArray = new Array();
+var gameApp = {
+	
+	onload: function() 
+	{
+		if(!me.video.init('gameapp', 640, 480, false, 1.0))
+		{
+			alert("No HTML5 Canvas Support");
+			return;
+		}
+		
+		me.audio.init("mp3,off");
+		me.loader.onload = this.loaded.bind(this);
+		me.loader.preload(g_resources);
+		me.state.change(me.state.LOADING);
+		
+	},
+	
+	loaded: function() 
+	{
+		me.state.set(me.state.PLAY, new PlayScreen());
+		me.state.change(me.state.PLAY);
+	}
+	
+}
+
+var PlayScreen = me.ScreenObject.extend({
+	
+	onResetEvent: function() 
+	{
+		
+	},
+	
+	onDestroyEvent: function() 
+	{
+		
+	}
+	
+});
+
+$(document).ready(function()
+{
+	gameInit();
+});
+
+
+
 function gameInit()
 {
-	alert("Hello");
+	gameApp.onload();
 	
 	// Going to have to set up some kind of menu here
 
