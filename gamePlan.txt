@@ -1,0 +1,26 @@
+Documentation:
+
+Planning:
+	Objects needed:
+		* An environment
+			- Map
+		* A menu
+		* Actors
+			- Towers
+			- Players
+			- Enemies
+	Actions performed:
+		* Placing towers
+			- Selecting towers
+			- Dropping them on map
+			- "Creating" the actual tower with all its functions
+		* Moving enemies
+			- Damaging player if the enemy reaches the end
+		* Firing towers
+			- Generating damage for enemies
+			- Killing enemies
+	Environment handling:
+		*  Array of all towers/placements
+		*  Array of enemies, positions
+		*  Paths
+		*  Array of positions that actors can be in
